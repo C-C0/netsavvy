@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_resource_utilisations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->enum('resource_type', ['Tutorial', 'CTFChallenge', 'Quiz']);
+            $table->foreignId('resource_id'); // Could link to various resources
+            $table->timestamp('accessed_at')->nullable();
             $table->timestamps();
         });
     }

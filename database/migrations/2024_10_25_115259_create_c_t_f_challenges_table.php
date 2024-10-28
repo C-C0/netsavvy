@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('c_t_f_challenges', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->enum('difficulty_level', ['Easy', 'Medium', 'Hard']);
             $table->timestamps();
         });
     }

@@ -18,6 +18,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('avatar')->nullable();
+            $table->string('skill_level')->nullable();
+            $table->enum('preferred_learning_style', ['Visual', 'Auditory', 'Kinesthetic']);
             $table->timestamps();
         });
 

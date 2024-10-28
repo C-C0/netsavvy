@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('user_engagements', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('module_id')->constrained()->onDelete('cascade');
+            $table->integer('time_spent')->nullable(); // Store time in seconds or minutes
+            $table->integer('interaction_frequency')->nullable(); // Count of interactions
+            $table->float('completion_rate', 5, 2)->nullable(); // Percentage of completion
             $table->timestamps();
         });
     }

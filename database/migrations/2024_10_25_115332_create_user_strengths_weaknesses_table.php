@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('user_strengths_weaknesses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('strengths')->nullable();
+            $table->text('weaknesses')->nullable();
             $table->timestamps();
         });
     }

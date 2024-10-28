@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_feedback', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('survey_result')->nullable();
+            $table->integer('satisfaction_score')->nullable(); // 1 to 10 scale
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
     }
