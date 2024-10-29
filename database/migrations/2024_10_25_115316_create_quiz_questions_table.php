@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('quiz_id')->constrained()->onDelete('cascade');
             $table->text('question_text');
-            $table->string('option_a');
-            $table->string('option_b');
-            $table->string('option_c');
-            $table->string('option_d');
+            $table->enum('question_type', ['multiple-choice', 'matching']); // Not yet 'short-answer'or 'scenario-based'
+            $table->enum('difficulty_level', ['beginner', 'intermediate', 'advanced']);
+            $table->string('option_a')->nullable();
+            $table->string('option_b')->nullable();
+            $table->string('option_c')->nullable();
+            $table->string('option_d')->nullable();
             $table->char('correct_option', 1); // 'A', 'B', 'C', or 'D'
             $table->timestamps();
         });
