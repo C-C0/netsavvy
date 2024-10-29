@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'skill_level',
+        'preferred_learning_style',
     ];
 
     /**
@@ -44,5 +46,51 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //Relationships
+    public function skillLevelAssessments()
+    {
+        return $this->hasMany(SkillLevelAssessment::class);
+    }
+
+    public function tutorials()
+    {
+        return $this->belongsToMany(Tutorial::class);
+    }
+
+    public function ctfs()
+    {
+        return $this->belongsToMany(CTFChallenge::class);
+    }
+
+    public function quizzes()
+    {
+        return $this->belongsToMany(Quiz::class);
+    }
+
+    public function badges()
+    {
+        return $this->hasMany(UserBadge::class);
+    }
+
+    public function strengthsWeaknesses()
+    {
+        return $this->hasOne(UserStrengthsWeaknesses::class);
+    }
+
+    public function feedback()
+    {
+        return $this->hasMany(UserFeedback::class);
+    }
+
+    public function resourceUtilizations()
+    {
+        return $this->hasMany(UserResourceUtilization::class);
+    }
+
+    public function engagements()
+    {
+        return $this->hasMany(UserEngagement::class);
     }
 }
