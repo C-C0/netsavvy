@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->enum('difficulty_level', ['Easy', 'Medium', 'Hard']);
+            $table->text('hint_1')->nullable();
+            $table->text('hint_2')->nullable();
+            $table->text('hint_3')->nullable();
+            $table->text('answer_key');
             $table->timestamps();
         });
     }
