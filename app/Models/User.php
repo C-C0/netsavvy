@@ -48,6 +48,16 @@ class User extends Authenticatable
         ];
     }
 
+    //Added roles only for admin or lecturers as students default
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isLecturer()
+    {
+        return $this->role === 'lecturer';
+    }
     //Relationships
     public function skillLevelAssessments()
     {
