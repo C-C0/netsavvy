@@ -12,6 +12,7 @@ class SkillLevelAssessment extends Model
     protected $fillable = [
         'user_id',
         'quiz_id',
+        'skill_level', 
         'score',
     ];
 
