@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('icon')->nullable(); // For badge icon
             $table->text('criteria');
             $table->timestamps();
         });
