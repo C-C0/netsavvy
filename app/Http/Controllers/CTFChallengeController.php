@@ -8,19 +8,6 @@ use Illuminate\Http\Request;
 
 class CTFChallengeController extends Controller
 {
-    /**
-     * Apply Middleware to the Controller
-     * Now each method remains cleaner, without needing to add role checks manually
-    */
-    public function __construct()
-    {
-        // Allow students, lecturers, and admins to view modules
-        $this->middleware('role:student,lecturer,admin')->only(['index', 'show']);
-        
-        // Allow only lecturers and admins to create, update, or delete modules
-        $this->middleware('role:lecturer,admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
-    }
-    
     public function index()
     {
         $challenges = CTFChallenge::all();
