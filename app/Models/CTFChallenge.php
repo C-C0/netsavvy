@@ -14,4 +14,9 @@ class CTFChallenge extends Model
         'description',
         'difficulty_level',
     ];
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
 }

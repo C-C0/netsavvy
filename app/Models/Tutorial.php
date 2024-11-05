@@ -15,4 +15,9 @@ class Tutorial extends Model
         'content',
         'content_format',
     ];
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
 }

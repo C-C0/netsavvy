@@ -18,4 +18,19 @@ class Module extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    public function tutorials()
+    {
+        return $this->hasMany(Tutorial::class);
+    }
+
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
+
+    public function ctfChallenges()
+    {
+        return $this->hasMany(CTFChallenge::class);
+    }
 }
